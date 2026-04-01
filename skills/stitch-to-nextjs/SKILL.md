@@ -1,7 +1,7 @@
 ---
-description: Convert Stitch designs into pixel-perfect Next.js + Tailwind components
-argument-hint: [project-id screen-id] or "list" to browse projects
-allowed-tools: mcp__stitch__get_screen, mcp__stitch__get_project, mcp__stitch__list_screens, mcp__stitch__list_projects, mcp__stitch__list_design_systems, mcp__stitch-dev__get_screen_code, mcp__stitch-dev__get_screen_image, mcp__stitch-dev__get_screen, mcp__stitch-dev__list_projects, mcp__stitch-dev__list_screens, mcp__stitch-dev__get_project, mcp__stitch-dev__build_site, Read, Write, Edit, Glob, Grep, Bash, WebFetch, Task
+description: "Convert Stitch designs into pixel-perfect Next.js + Tailwind components"
+argument-hint: "project-id screen-id or list to browse projects"
+allowed-tools: "mcp__stitch__get_screen, mcp__stitch__get_project, mcp__stitch__list_screens, mcp__stitch__list_projects, mcp__stitch__list_design_systems, mcp__stitch-dev__get_screen_code, mcp__stitch-dev__get_screen_image, mcp__stitch-dev__get_screen, mcp__stitch-dev__list_projects, mcp__stitch-dev__list_screens, mcp__stitch-dev__get_project, mcp__stitch-dev__build_site, Read, Write, Edit, Glob, Grep, Bash, WebFetch, Task"
 ---
 
 # Stitch to Next.js - Pixel Perfect Converter
