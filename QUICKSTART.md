@@ -2,30 +2,13 @@
 
 Get up and running in under 2 minutes.
 
-## Step 1: Install the plugin
+## Step 1: Run the installer
 
-Add the marketplace to your `~/.claude/settings.json`:
-
-```json
-{
-  "extraKnownMarketplaces": {
-    "stitch-to-nextjs": {
-      "source": {
-        "source": "github",
-        "repo": "yshaish1/stitch-to-nextjs"
-      }
-    }
-  }
-}
+```bash
+curl -sL https://raw.githubusercontent.com/yshaish1/stitch-to-nextjs/main/install.sh | bash
 ```
 
-Then restart Claude Code and run:
-
-```
-/plugin install stitch-to-nextjs
-```
-
-This installs the skill and auto-configures the MCP server for HTML export and screenshots.
+This installs the skill, adds the plugin marketplace, and configures the MCP server - all automatically.
 
 ## Step 2: Authenticate with Google (one-time)
 

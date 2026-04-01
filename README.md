@@ -44,49 +44,28 @@ When you convert Stitch designs to code manually or with generic AI tools, thing
 
 ## Quick Install
 
-### Option 1: Plugin Install (recommended)
+### One-liner (recommended)
 
-Add the marketplace to your Claude Code settings, then install:
-
-1. Add to your `~/.claude/settings.json`:
-
-```json
-{
-  "extraKnownMarketplaces": {
-    "stitch-to-nextjs": {
-      "source": {
-        "source": "github",
-        "repo": "yshaish1/stitch-to-nextjs"
-      }
-    }
-  }
-}
+```bash
+curl -sL https://raw.githubusercontent.com/yshaish1/stitch-to-nextjs/main/install.sh | bash
 ```
 
-2. Restart Claude Code, then run:
+This automatically:
+- Installs the skill to `~/.claude/commands/`
+- Adds the plugin marketplace to your Claude Code settings
+- Checks stitch-mcp authentication status
+
+Then restart Claude Code and run `/stitch-to-nextjs list`.
+
+### Alternative: Plugin install
+
+If you prefer the plugin system:
 
 ```
 /plugin install stitch-to-nextjs
 ```
 
-This installs the skill AND auto-configures the [davideast/stitch-mcp](https://github.com/davideast/stitch-mcp) server for HTML export and screenshots - no manual MCP setup needed.
-
-### Option 2: Copy the skill file
-
-```bash
-curl -o ~/.claude/commands/stitch-to-nextjs.md \
-  https://raw.githubusercontent.com/yshaish1/stitch-to-nextjs/main/skills/stitch-to-nextjs/SKILL.md
-```
-
-> Note: This method requires manual MCP setup. See [manual MCP configuration](#manual-mcp-configuration) below.
-
-### Option 3: Clone and symlink
-
-```bash
-git clone https://github.com/yshaish1/stitch-to-nextjs.git
-ln -s "$(pwd)/stitch-to-nextjs/skills/stitch-to-nextjs/SKILL.md" \
-  ~/.claude/commands/stitch-to-nextjs.md
-```
+> Requires marketplace to be added first. The install script above handles this automatically.
 
 ---
 
@@ -95,7 +74,7 @@ ln -s "$(pwd)/stitch-to-nextjs/skills/stitch-to-nextjs/SKILL.md" \
 - [Claude Code](https://claude.ai/code) CLI installed
 - A [Google Stitch](https://stitch.withgoogle.com) account with at least one project
 - Built-in Stitch MCP enabled in Claude Code (available by default on claude.ai)
-- One-time `npx @_davideast/stitch-mcp init` to authenticate with Google (plugin install handles the MCP config automatically after this)
+- One-time `npx @_davideast/stitch-mcp init` to authenticate with Google (the install script will remind you if needed)
 
 ---
 
