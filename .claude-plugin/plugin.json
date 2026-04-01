@@ -1,10 +1,14 @@
 {
   "name": "stitch-to-nextjs",
-  "description": "Pixel-perfect Google Stitch designs to Next.js + Tailwind components",
   "version": "1.0.0",
+  "description": "Pixel-perfect Google Stitch designs to Next.js + Tailwind components",
   "author": {
-    "name": "yshaish1"
+    "name": "yshaish1",
+    "url": "https://github.com/yshaish1"
   },
-  "keywords": ["stitch", "nextjs", "tailwind", "design-to-code", "pixel-perfect"],
+  "homepage": "https://github.com/yshaish1/stitch-to-nextjs",
+  "repository": "https://github.com/yshaish1/stitch-to-nextjs",
+  "license": "MIT",
+  "keywords": ["stitch", "nextjs", "tailwind", "design-to-code", "pixel-perfect", "google-stitch", "mcp"],
   "skills": "./skills/"
 }
