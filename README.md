@@ -47,13 +47,13 @@ When you convert Stitch designs to code manually or with generic AI tools, thing
 
 ```bash
 curl -o ~/.claude/commands/stitch-to-nextjs.md \
-  https://raw.githubusercontent.com/shaishmini/stitch-to-nextjs/main/skills/stitch-to-nextjs/SKILL.md
+  https://raw.githubusercontent.com/yshaish1/stitch-to-nextjs/main/skills/stitch-to-nextjs/SKILL.md
 ```
 
 ### Option 2: Clone and symlink
 
 ```bash
-git clone https://github.com/shaishmini/stitch-to-nextjs.git
+git clone https://github.com/yshaish1/stitch-to-nextjs.git
 ln -s "$(pwd)/stitch-to-nextjs/skills/stitch-to-nextjs/SKILL.md" \
   ~/.claude/commands/stitch-to-nextjs.md
 ```

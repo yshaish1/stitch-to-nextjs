@@ -6,7 +6,7 @@ Get up and running in under 2 minutes.
 
 ```bash
 curl -o ~/.claude/commands/stitch-to-nextjs.md \
-  https://raw.githubusercontent.com/shaishmini/stitch-to-nextjs/main/skills/stitch-to-nextjs/SKILL.md
+  https://raw.githubusercontent.com/yshaish1/stitch-to-nextjs/main/skills/stitch-to-nextjs/SKILL.md
 ```
 
 ## Step 2: (Recommended) Install stitch-mcp for HTML export
