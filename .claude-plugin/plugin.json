@@ -1,0 +1,10 @@
+{
+  "name": "stitch-to-nextjs",
+  "description": "Pixel-perfect Google Stitch designs to Next.js + Tailwind components",
+  "version": "1.0.0",
+  "author": {
+    "name": "yshaish1"
+  },
+  "keywords": ["stitch", "nextjs", "tailwind", "design-to-code", "pixel-perfect"],
+  "skills": "./skills/"
+}

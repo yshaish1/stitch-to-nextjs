@@ -16,10 +16,11 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Claude_Code-Skill-blueviolet" alt="Claude Code Skill" />
+  <img src="https://img.shields.io/badge/Claude_Code-Plugin-blueviolet" alt="Claude Code Plugin" />
   <img src="https://img.shields.io/badge/Next.js-14%2B-black" alt="Next.js 14+" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-v3%20%7C%20v4-38bdf8" alt="Tailwind CSS" />
   <img src="https://img.shields.io/badge/Stitch-Google_Labs-4285F4" alt="Google Stitch" />
+  <img src="https://img.shields.io/badge/MCP-Auto--configured-22C55E" alt="MCP Auto-configured" />
   <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" />
 </p>
 
@@ -43,14 +44,43 @@ When you convert Stitch designs to code manually or with generic AI tools, thing
 
 ## Quick Install
 
-### Option 1: Copy the skill file (simplest)
+### Option 1: Plugin Install (recommended)
+
+Add the marketplace to your Claude Code settings, then install:
+
+1. Add to your `~/.claude/settings.json`:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "stitch-to-nextjs": {
+      "source": {
+        "source": "github",
+        "repo": "yshaish1/stitch-to-nextjs"
+      }
+    }
+  }
+}
+```
+
+2. Restart Claude Code, then run:
+
+```
+/plugin install stitch-to-nextjs
+```
+
+This installs the skill AND auto-configures the [davideast/stitch-mcp](https://github.com/davideast/stitch-mcp) server for HTML export and screenshots - no manual MCP setup needed.
+
+### Option 2: Copy the skill file
 
 ```bash
 curl -o ~/.claude/commands/stitch-to-nextjs.md \
   https://raw.githubusercontent.com/yshaish1/stitch-to-nextjs/main/skills/stitch-to-nextjs/SKILL.md
 ```
 
-### Option 2: Clone and symlink
+> Note: This method requires manual MCP setup. See [manual MCP configuration](#manual-mcp-configuration) below.
+
+### Option 3: Clone and symlink
 
 ```bash
 git clone https://github.com/yshaish1/stitch-to-nextjs.git
@@ -58,42 +88,14 @@ ln -s "$(pwd)/stitch-to-nextjs/skills/stitch-to-nextjs/SKILL.md" \
   ~/.claude/commands/stitch-to-nextjs.md
 ```
 
-### Option 3: Manual
-
-Copy the contents of [`skills/stitch-to-nextjs/SKILL.md`](skills/stitch-to-nextjs/SKILL.md) into `~/.claude/commands/stitch-to-nextjs.md`.
-
 ---
 
 ## Prerequisites
 
-### Required
-
 - [Claude Code](https://claude.ai/code) CLI installed
 - A [Google Stitch](https://stitch.withgoogle.com) account with at least one project
 - Built-in Stitch MCP enabled in Claude Code (available by default on claude.ai)
-
-### Recommended (for best results)
-
-Install [davideast/stitch-mcp](https://github.com/davideast/stitch-mcp) for HTML code export and screenshot comparison:
-
-```bash
-npx @_davideast/stitch-mcp init
-```
-
-Then add to your project's `.mcp.json`:
-
-```json
-{
-  "mcpServers": {
-    "stitch-dev": {
-      "command": "npx",
-      "args": ["-y", "@_davideast/stitch-mcp", "proxy"]
-    }
-  }
-}
-```
-
-This unlocks `get_screen_code` (exact HTML/Tailwind export) and `get_screen_image` (screenshot for visual comparison).
+- One-time `npx @_davideast/stitch-mcp init` to authenticate with Google (plugin install handles the MCP config automatically after this)
 
 ---
 
@@ -244,12 +246,27 @@ All 29 Stitch design system fonts are mapped to `next/font/google`:
 
 ### MCP Setup
 
-The skill works with two MCP servers:
+When installed as a plugin, the MCP server is auto-configured. The skill uses two MCP servers:
 
-| MCP Server | Tools Used | Required? |
+| MCP Server | Tools Used | Setup |
 |---|---|---|
-| Built-in Stitch (Claude.ai) | `get_screen`, `get_project`, `list_screens`, `list_design_systems` | Yes |
-| [davideast/stitch-mcp](https://github.com/davideast/stitch-mcp) | `get_screen_code`, `get_screen_image` | Recommended |
+| Built-in Stitch (Claude.ai) | `get_screen`, `get_project`, `list_screens`, `list_design_systems` | Automatic |
+| [davideast/stitch-mcp](https://github.com/davideast/stitch-mcp) | `get_screen_code`, `get_screen_image` | Auto-configured by plugin |
+
+#### Manual MCP Configuration
+
+If you installed the skill file manually (not as a plugin), add this to your project's `.mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "stitch-dev": {
+      "command": "npx",
+      "args": ["-y", "@_davideast/stitch-mcp", "proxy"]
+    }
+  }
+}
+```
 
 ### Customization
 
@@ -310,8 +327,9 @@ Generates:
 
 ### "get_screen_code not found"
 
-Install [davideast/stitch-mcp](https://github.com/davideast/stitch-mcp):
+If installed as a plugin, the MCP server should be auto-configured. Try restarting Claude Code. If using the manual skill file install, see [Manual MCP Configuration](#manual-mcp-configuration).
 
+You also need to run the one-time auth setup:
 ```bash
 npx @_davideast/stitch-mcp init
 ```

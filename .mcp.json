@@ -1,0 +1,6 @@
+{
+  "stitch-dev": {
+    "command": "npx",
+    "args": ["-y", "@_davideast/stitch-mcp", "proxy"]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "stitch-to-nextjs",
+  "owner": { "name": "yshaish1" },
+  "metadata": {
+    "description": "Pixel-perfect Google Stitch to Next.js converter",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "stitch-to-nextjs",
+      "source": "./",
+      "description": "Convert Stitch designs into pixel-perfect Next.js + Tailwind components with auto-configured MCP",
+      "version": "1.0.0",
+      "category": "design",
+      "tags": ["stitch", "nextjs", "tailwind", "design-to-code"]
+    }
+  ]
+}

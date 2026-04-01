@@ -2,35 +2,42 @@
 
 Get up and running in under 2 minutes.
 
-## Step 1: Install the skill
+## Step 1: Install the plugin
 
-```bash
-curl -o ~/.claude/commands/stitch-to-nextjs.md \
-  https://raw.githubusercontent.com/yshaish1/stitch-to-nextjs/main/skills/stitch-to-nextjs/SKILL.md
-```
-
-## Step 2: (Recommended) Install stitch-mcp for HTML export
-
-```bash
-npx @_davideast/stitch-mcp init
-```
-
-Follow the wizard to authenticate with Google. Then add to your project's `.mcp.json`:
+Add the marketplace to your `~/.claude/settings.json`:
 
 ```json
 {
-  "mcpServers": {
-    "stitch-dev": {
-      "command": "npx",
-      "args": ["-y", "@_davideast/stitch-mcp", "proxy"]
+  "extraKnownMarketplaces": {
+    "stitch-to-nextjs": {
+      "source": {
+        "source": "github",
+        "repo": "yshaish1/stitch-to-nextjs"
+      }
     }
   }
 }
 ```
 
+Then restart Claude Code and run:
+
+```
+/plugin install stitch-to-nextjs
+```
+
+This installs the skill and auto-configures the MCP server for HTML export and screenshots.
+
+## Step 2: Authenticate with Google (one-time)
+
+```bash
+npx @_davideast/stitch-mcp init
+```
+
+Follow the wizard to authenticate with Google. This is a one-time setup.
+
 ## Step 3: Restart Claude Code
 
-The new skill and MCP server load on restart.
+The plugin and MCP server load on restart.
 
 ## Step 4: Use it
 
@@ -59,6 +66,17 @@ Plus:
 - Fonts added to your `layout.tsx` via `next/font/google`
 - Tailwind config extended with design tokens
 - A validation checklist to verify everything matches
+
+## Alternative: Manual install (without plugin)
+
+If you prefer not to use the plugin system:
+
+```bash
+curl -o ~/.claude/commands/stitch-to-nextjs.md \
+  https://raw.githubusercontent.com/yshaish1/stitch-to-nextjs/main/skills/stitch-to-nextjs/SKILL.md
+```
+
+You'll need to manually configure the MCP server. See the [README](README.md#manual-mcp-configuration) for details.
 
 ## Next steps
 
